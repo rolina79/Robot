@@ -8,7 +8,19 @@ class DriveTrain {
 		Victor rightFrontVic;
 		Victor rightBackVic;
 
-		Encoder leftEnc;
-		Encoder rightEnc;
+	public:
+		DriveTrain();
+		void update();
+		//comking varibles 
+		//
+		//ENUM?	
+		//state
+		typedef enum enstate{
+			
+		}
+
+	
 };
+double absolute(double n);
+//???
 #endif
