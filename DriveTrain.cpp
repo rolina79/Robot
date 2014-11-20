@@ -11,10 +11,6 @@ DriveTrain::DriveTrain():
 	public:
 		DriveTrain();
 		void update();
-		//comking varibles 
-		//
-		//ENUM?	
-		//state
 	void DriveTrain::init() {
 	rightFrontController.SetOutputRange(-1, 1);
 	leftFrontController.SetOutputRange(-1, 1);
@@ -26,14 +22,6 @@ void DriveTrain::update() {
 
 	switch (state) {
 		case ROTATE_SPEED:
-
-			/*
-			 *Logic: Take speed you want to generally go at (targetSpeed)
-			 *Logic: leftVic goes positive, rightVic goes negative
-			 *Logic: Vics are restricted to -1,1, so min-max to that range
-			 *Logic: Take targetSpeed and add/subtract rotateSpeed for turning
-			 *Logic: Right victor is negative because we are turning
-			 */
 			 double leftSpeed;
 			 double rightSpeed
 			 if(targetSpeed - rotateSpeed<=-1){
@@ -52,11 +40,11 @@ void DriveTrain::update() {
 				rightBackVic.Set(rightSpeed*rightSpeed*rightSpeed);
 		break;
 
-	/*	case ROBOT_DIST:
-			rightFrontVic.Set(-rightFrontController.Get());
-			rightBackVic.Set(-rightBackController.Get());
+	/*	case DRIVETRAIN_DIST:
 			leftFrontVic.Set(leftFrontController.Get());
 			leftBackVic.Set(leftBackController.Get());
+			rightFrontVic.Set(-rightFrontController.Get());
+			rightBackVic.Set(-rightBackController.Get());
 			break;*/
 		case ANGULAR_ANGLE:
 		
@@ -68,6 +56,12 @@ void DriveTrain::update() {
 			rightFrontVic.Set(0.0);
 			rightBackVic.Set(0.0);
 		break;
+	}
+	void DriveTrain::disable(){
+		leftFrontVic.Reset();
+		leftBackVic.Reset();
+		rightFrontVic.Reset();
+		rightBackVic.Reset();
 	}
 }
 
