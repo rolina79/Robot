@@ -37,35 +37,27 @@ void DriveTrain::update() {
 			 double leftSpeed;
 			 double rightSpeed
 			 if(targetSpeed - rotateSpeed<=-1){
-			   leftSpeed
+			   	leftSpeed=-1;
 			 }
-			 else if()
-			 else()
-			double leftSpeed = min(max(targetSpeed - rotateSpeed, -1), 1);
-			double rightSpeed = min(max(targetSpeed + rotateSpeed, -1), 1);
-
-				leftFrontVic.Set(-leftSpeed*leftSpeed*leftSpeed);
-				leftBackVic.Set(-leftSpeed*leftSpeed*leftSpeed);
-				rightFrontVic.Set(rightSpeed*leftSpeed*leftSpeed);
-				rightBackVic.Set(rightSpeed*leftSpeed*leftSpeed);
-
-//			leftFrontVic.Set(leftFrontController.Get());
-//			leftBackVic.Set(leftBackController.Get());
-//			rightFrontVic.Set(-rightFrontController.Get());
-//			rightBackVic.Set(-rightBackController.Get());
-//			std::cout << "leftFrontPID: " << leftFrontController.Get() << std::endl;
-//			std::cout << "rightFrontPID: " << rightFrontController.Get() << std::endl;
-//			std::cout << "supposed rate: " << leftFrontController.GetSetpoint() << std::endl;
-//			std::cout << "targetRate: " << targetRate << std::endl;
-
+			 else if(1<=targetSpeed - rotateSpeed){
+			 	leftSpeed=1;
+			 }
+			 else{
+			 	leftSpeed=targetSpeed - rotateSpeed;
+			 	
+			 }
+				leftFrontVic.Set(-leftSpeed*leftSpeed*leftSpeed*leftSpeed);
+				leftBackVic.Set(-leftSpeed*leftSpeed*leftSpeed*leftSpeed);
+				rightFrontVic.Set(rightSpeed*rightspeed*rightSpeed*rightSpeed);
+				rightBackVic.Set(rightSpeed*rightSpeed*rightSpeed);
 		break;
 
-		case ROBOT_DIST:
+	/*	case ROBOT_DIST:
 			rightFrontVic.Set(-rightFrontController.Get());
 			rightBackVic.Set(-rightBackController.Get());
 			leftFrontVic.Set(leftFrontController.Get());
 			leftBackVic.Set(leftBackController.Get());
-			break;
+			break;*/
 		case ANGULAR_ANGLE:
 		
 		break;
