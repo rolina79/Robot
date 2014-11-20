@@ -15,9 +15,12 @@ class DriveTrain {
 		//
 		//ENUM?	
 		//state
-		typedef enum enstate{
+		typedef enum enState{
+			ROTATE_SPEED, ANGULAR_ANGLE, VICTOR_STOP;
 			
 		}
+		enState;
+		enState state;
 
 	
 };
