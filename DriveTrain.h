@@ -20,6 +20,6 @@ class DriveTrain {
 
 	
 };
-double absolute(double n);
+//double absolute(double n);
 //???
 #endif
