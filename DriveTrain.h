@@ -11,10 +11,6 @@ class DriveTrain {
 	public:
 		DriveTrain();
 		void update();
-		//comking varibles 
-		//
-		//ENUM?	
-		//state
 		typedef enum enState{
 			ROTATE_SPEED, ANGULAR_ANGLE, VICTOR_STOP;
 			
