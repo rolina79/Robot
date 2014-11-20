@@ -1,21 +1,16 @@
 # include DrivrTrain.h
 
 DriveTrain::DriveTrain():
-{
-  	private:		
-	Victor leftFrontVic;
-		Victor leftBackVic;
-		Victor rightFrontVic;
-		Victor rightBackVic;
 
-	public:
-		DriveTrain();
-		void update();
+	Victor leftFrontVic;
+	Victor leftBackVic;
+	Victor rightFrontVic;
+	Victor rightBackVic;
+{
+	rotateSpeed = 0;
+	targetSpeed = 0;
+}
 	void DriveTrain::init() {
-	rightFrontController.SetOutputRange(-1, 1);
-	leftFrontController.SetOutputRange(-1, 1);
-	rightBackController.SetOutputRange(-1, 1);
-	leftBackController.SetOutputRange(-1, 1);
 	state = VICTORS_STOP;
 	}
 	void DriveTrain::update() {
@@ -55,10 +50,14 @@ DriveTrain::DriveTrain():
 				rightBackVic.Set(0.0);
 			break;
 	}
-	void DriveTrain::disable(){
-		leftFrontVic.Reset();
-		leftBackVic.Reset();
-		rightFrontVic.Reset();
-		rightBackVic.Reset();
+	void DriveTrain::setSpeed(double speed){
+		targetSpeed=speed;
 	}
+	void DriveTrain::rotateSpeed(double Aspeed){
+		rotateSpeed=Aspeed;
+	}
+	/*
+	void DriveTrain::rotateAngle(double angle){
+		rotateAngle=angle;
+	}*/
 }
