@@ -9,6 +9,7 @@ DriveTrain::DriveTrain():
 {
 	rotateSpeed = 0;
 	targetSpeed = 0;
+	rotateAngle
 }
 	void DriveTrain::init() {
 	state = VICTORS_STOP;
@@ -52,12 +53,14 @@ DriveTrain::DriveTrain():
 	}
 	void DriveTrain::setSpeed(double speed){
 		targetSpeed=speed;
+		state=ROTATE_SPEED;
 	}
 	void DriveTrain::rotateSpeed(double Aspeed){
 		rotateSpeed=Aspeed;
+		state=ROTATE_SPEED;
 	}
-	/*
 	void DriveTrain::rotateAngle(double angle){
 		rotateAngle=angle;
-	}*/
+		state=ANGULAR_ANGLE;
+	}
 }
