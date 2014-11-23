@@ -1,6 +1,6 @@
 #include "HumanController.h"
 
-HumanController::HumanController(Robot *robotPointer) :
+HumanController::HumanController(Robot *robotpointer) :
 #if JOYSTICKCONTROLLER
 			speedStick((uint32_t) PORT_SPEED), 
 			turnStick((uint32_t) PORT_TURN), 
