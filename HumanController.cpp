@@ -1,6 +1,6 @@
 #include "HumanController.h"
 
-HumanController::HumanController(Robot *robotpointer) :
+HumanController::HumanController(Robot ropointer) :
 #if JOYSTICKCONTROLLER
 			speedStick((uint32_t) PORT_SPEED), 
 			turnStick((uint32_t) PORT_TURN), 
@@ -14,17 +14,16 @@ HumanController::HumanController(Robot *robotpointer) :
   	prevZ = false;
   	prevStop = false;
   	lastOutButton = false;
-	  lastManualFireButton = false;
-	  lastManualLoadButton = false;
+	lastManualFireButton = false;
+	lastManualLoadButtn = false;
   	manualControl = false;
   	lastManualButton = false;
 #endif
 
 void HumanController::undate
-
+void argP=maloc(DriveArgs)
 if (abs(getTurnStick()) <= .1 && abs(getSpeedStick()) <= .1) {
-
-		((DriveArgs*) argPointer)->speedValue = getSpeedStick();
+		((*DriveArgs) argP)->speedVal = getSpeedStick();
 		RobotCommand::Method setSpeed;
 		setSpeed.driveMethod = RobotCommand::SETSPEED;
 		RobotCommand speedCommand(RobotCommand::DRIVE, setSpeed, argPointer);
@@ -37,7 +36,7 @@ if (abs(getTurnStick()) <= .1 && abs(getSpeedStick()) <= .1) {
 		robot->setCommand(rotateCommand);
 	}
 	if (abs(getSpeedStick()) > 0.1) {
-		((DriveArgs*) argPointer)->speedValue = getSpeedStick();
+		((DriveArgs*) argPointer)->speedVal = getSpeedStick();
 		RobotCommand::Method setSpeed;
 		setSpeed.driveMethod = RobotCommand::SETSPEED;
 		RobotCommand speedCommand(RobotCommand::DRIVE, setSpeed, argPointer);
